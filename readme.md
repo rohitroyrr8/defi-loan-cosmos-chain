@@ -4,6 +4,7 @@
 ## Get started
 
 ```
+ignite scaffold chain loan --no-module && cd loan
 ignite chain serve
 ```
 
