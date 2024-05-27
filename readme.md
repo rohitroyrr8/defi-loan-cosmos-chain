@@ -50,3 +50,44 @@ curl https://get.ignite.com/username/loan@latest! | sudo bash
 - [Ignite CLI docs](https://docs.ignite.com)
 - [Cosmos SDK docs](https://docs.cosmos.network)
 - [Developer Chat](https://discord.gg/ignite)
+
+
+## Create a module
+Create a new "loan" module that is based on the standard Cosmos SDK bank module.
+```
+ignite scaffold module loan --dep bank
+```
+
+## Define the loan module
+The "list" scaffolding command is used to generate files that implement the logic for storing and interacting with data stored as a list in the blockchain state.
+```
+ignite scaffold list loan amount fee collateral deadline state borrower lender --no-message
+```
+
+## Scaffold the Messages
+Scaffold the code for handling the messages for requesting, approving, repaying, liquidating, and cancelling loans.
+
+- Handling loan requests
+```
+ignite scaffold message request-loan amount fee collateral deadline
+```
+
+- Approving and Canceling Loans
+
+```
+ignite scaffold message approve-loan id:uint
+```
+```
+ignite scaffold message cancel-loan id:uint
+```
+
+- Repaying and Liquidating Loans
+
+```
+ignite scaffold message repay-loan id:uint
+```
+```
+ignite scaffold message liquidate-loan id:uint
+```
+
+
