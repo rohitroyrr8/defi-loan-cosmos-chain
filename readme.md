@@ -91,6 +91,33 @@ ignite scaffold message liquidate-loan id:uint
 ```
 
 ## Testing the application
+- Add test tokens
+Configure config.yml to add tokens (e.g., 10000foocoin) to test accounts.
+```
+version: 1
+accounts:
+  - name: alice
+    coins:
+      - 20000token
+      - 10000foocoin
+      - 200000000stake
+  - name: bob
+    coins:
+      - 10000token
+      - 100000000stake
+client:
+  openapi:
+    path: docs/static/openapi.yml
+faucet:
+  name: bob
+  coins:
+    - 5token
+    - 100000stake
+validators:
+  - name: alice
+    bonded: 100000000stake
+```
+
 ```
 loand tx loan request-loan 1000token 100token 1000foocoin 500 --from alice --chain-id loan
 loand tx loan approve-loan 0 --from bob --chain-id loan
