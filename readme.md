@@ -90,4 +90,17 @@ ignite scaffold message repay-loan id:uint
 ignite scaffold message liquidate-loan id:uint
 ```
 
+## Testing the application
+```
+loand tx loan request-loan 1000token 100token 1000foocoin 500 --from alice --chain-id loan
+loand tx loan approve-loan 0 --from bob --chain-id loan
+loand tx loan repay-loan 0 --from alice --chain-id loan
 
+loand tx loan request-loan 1000token 100token 1000foocoin 20 --from alice --chain-id loan -y
+loand tx loan approve-loan 1 --from bob --chain-id loan -y
+loand tx loan liquidate-loan 1 --from bob --chain-id loan -y
+
+loand q loan list-loan
+
+loand q bank balances $(loand keys show alice -a)
+```
