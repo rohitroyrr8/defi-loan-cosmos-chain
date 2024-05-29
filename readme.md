@@ -91,7 +91,7 @@ ignite scaffold message liquidate-loan id:uint
 ```
 
 ## Testing the application
-- Add test tokens
+### Add test tokens
 Configure config.yml to add tokens (e.g., 10000foocoin) to test accounts.
 ```
 version: 1
@@ -118,6 +118,14 @@ validators:
     bonded: 100000000stake
 ```
 
+
+### Start the Blockchain:
+```
+ignite chain serve
+```
+If everything works successful, you should see the Blockchain is running message in the Terminal.
+
+### Perform loan operations
 ```
 loand tx loan request-loan 1000token 100token 1000foocoin 500 --from alice --chain-id loan
 loand tx loan approve-loan 0 --from bob --chain-id loan
